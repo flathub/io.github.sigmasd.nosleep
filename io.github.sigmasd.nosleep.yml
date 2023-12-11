@@ -86,6 +86,6 @@ modules:
 
     sources:
       - type: archive
-        url: https://github.com/sigmaSd/gnome-nosleep/archive/refs/tags/0.3.1.tar.gz
-        sha256: e5890e12d9a21c99c7001bc3b284f2d31ca1fd96b21e17fc93eb083576842624
+        url: https://github.com/sigmaSd/gnome-nosleep/archive/refs/tags/0.3.2.tar.gz
+        sha256: 4d7cf14d999608d1bbedd7c0e892f9f6f02ee014f61272a1211c10d1e48a42a6
 
