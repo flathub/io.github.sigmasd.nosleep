@@ -73,13 +73,13 @@ modules:
   - name: nosleep
     buildsystem: simple
     build-commands:
-      - mkdir -p /app/lib/nosleep/runtime
-      - cp main.ts /app/lib/nosleep/runtime/main.ts
-      - cp main.css /app/lib/nosleep/runtime/main.css
-      - cp deno.json /app/lib/nosleep/runtime/deno.json
-      - cp -r vendor /app/lib/nosleep/runtime/vendor
+      - mkdir -p /app/bin/runtime
+      - cp main.ts /app/bin/runtime/main.ts
+      - cp main.css /app/bin/runtime/main.css
+      - cp deno.json /app/bin/runtime/deno.json
+      - cp -r vendor /app/bin/runtime/vendor
 
-      - echo "DENO_PYTHON_PATH=/usr/lib/$(uname -m)-linux-gnu/libpython3.11.so.1.0 /app/bin/deno run --allow-env=DENO_PYTHON_PATH,CSS --allow-ffi --unstable-ffi /app/lib/nolseep/runtime/main.ts" >/app/bin/nosleep
+      - echo "DENO_PYTHON_PATH=/usr/lib/$(uname -m)-linux-gnu/libpython3.11.so.1.0 /app/bin/deno run --allow-env=DENO_PYTHON_PATH,CSS --allow-ffi --unstable-ffi /app/bin/runtime/main.ts" >/app/bin/nosleep
       - chmod +x /app/bin/nosleep
 
       - install -Dm644 distro/io.github.sigmasd.nosleep.desktop -t /app/share/applications/
