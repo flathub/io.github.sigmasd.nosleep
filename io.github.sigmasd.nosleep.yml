@@ -20,8 +20,6 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --share=ipc
-  # Required to download deno url imports (in this case, deno-gtk-py and its dependencies)
-  - --share=network
   # gtk4 wants to access gpu
   - --device=dri
 
@@ -75,9 +73,13 @@ modules:
   - name: nosleep
     buildsystem: simple
     build-commands:
-      - cp main.ts /app/bin/main.ts
-      - cp main.css /app/bin/main.css
-      - echo "DENO_PYTHON_PATH=/usr/lib/$(uname -m)-linux-gnu/libpython3.11.so.1.0 CSS=/app/bin/main.css /app/bin/deno run --allow-ffi --allow-env=DENO_PYTHON_PATH,CSS --unstable-ffi /app/bin/main.ts"  >/app/bin/nosleep
+      - mkdir -p /app/bin/runtime
+      - cp main.ts /app/bin/runtime/main.ts
+      - cp main.css /app/bin/runtime/main.css
+      - cp deno.json /app/bin/runtime/deno.json
+      - cp -r vendor /app/bin/runtime/vendor
+
+      - echo "DENO_PYTHON_PATH=/usr/lib/$(uname -m)-linux-gnu/libpython3.11.so.1.0 /app/bin/deno run --allow-env=DENO_PYTHON_PATH,CSS --allow-ffi --unstable-ffi /app/bin/runtime/main.ts" >/app/bin/nosleep
       - chmod +x /app/bin/nosleep
 
       - install -Dm644 distro/io.github.sigmasd.nosleep.desktop -t /app/share/applications/
@@ -86,6 +88,6 @@ modules:
 
     sources:
       - type: archive
-        url: https://github.com/sigmaSd/gnome-nosleep/archive/refs/tags/0.3.5.tar.gz
-        sha256: 9f3b2ecbd4181765c1e8cb313c24472a48eb0796125988daabced07feb2e39be
+        url: https://github.com/sigmaSd/nosleep/archive/refs/tags/0.3.6.tar.gz
+        sha256: b7b5ca964c6fafd049628f6bf7e1d4c3890adba235b1356f6cf242673d05bd59
 
