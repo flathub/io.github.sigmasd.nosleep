@@ -88,6 +88,6 @@ modules:
 
     sources:
       - type: archive
-        url: https://github.com/sigmaSd/nosleep/archive/refs/tags/0.3.7.tar.gz
-        sha256: 22a6fe4453d2b71d33d34f7ddfcbff877bac53e1802a9138c765250dd52c6be0
+        url: https://github.com/sigmaSd/nosleep/archive/refs/tags/0.4.0.tar.gz
+        sha256: 44cf0eab913eed16ea969775d8c5100389ca7e0bb54ebb9182969a10e8fd231e
 
