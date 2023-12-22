@@ -78,9 +78,10 @@ modules:
       - cp i18n.ts /app/bin/runtime/i18n.ts
       - cp main.css /app/bin/runtime/main.css
       - cp deno.json /app/bin/runtime/deno.json
+      - cp -r locales /app/bin/runtime/locales
       - cp -r vendor /app/bin/runtime/vendor
 
-      - echo "DENO_PYTHON_PATH=/usr/lib/$(uname -m)-linux-gnu/libpython3.11.so.1.0 /app/bin/deno run --allow-env=DENO_PYTHON_PATH,CSS --allow-ffi --unstable-ffi /app/bin/runtime/main.ts" >/app/bin/nosleep
+      - echo "DENO_PYTHON_PATH=/usr/lib/$(uname -m)-linux-gnu/libpython3.11.so.1.0 /app/bin/deno run --allow-read=/app/bin/runtime/locales --allow-env=DENO_PYTHON_PATH,CSS --allow-ffi --unstable-ffi /app/bin/runtime/main.ts" >/app/bin/nosleep
       - chmod +x /app/bin/nosleep
 
       - install -Dm644 distro/io.github.sigmasd.nosleep.desktop -t /app/share/applications/
