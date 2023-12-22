@@ -75,6 +75,7 @@ modules:
     build-commands:
       - mkdir -p /app/bin/runtime
       - cp main.ts /app/bin/runtime/main.ts
+      - cp i18n.ts /app/bin/runtime/i18n.ts
       - cp main.css /app/bin/runtime/main.css
       - cp deno.json /app/bin/runtime/deno.json
       - cp -r vendor /app/bin/runtime/vendor
