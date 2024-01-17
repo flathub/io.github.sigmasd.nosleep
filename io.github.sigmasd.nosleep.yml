@@ -90,6 +90,6 @@ modules:
 
     sources:
       - type: archive
-        url: https://github.com/sigmaSd/stimulator/archive/refs/tags/0.7.2.tar.gz
-        sha256: 5e8571a93dbe1e629f54be58248c7646148d34de57a73ec37b358e5530e5c05d
+        url: https://github.com/sigmaSd/stimulator/archive/refs/tags/0.7.4.tar.gz
+        sha256: 575e92582ee4ec1a5ce69b18e7ae90db4a53dc75c33a44c3b659eac98e4ef0ed
 
